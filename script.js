@@ -72,6 +72,7 @@ $.ajax({
     }
   });
 
+  $('#container').height($(window).height());
   chart = Highcharts.chart('container', {
     legend: {
       enabled: false
