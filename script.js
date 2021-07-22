@@ -137,7 +137,9 @@ $.ajax({
       max: conf.min
     },
     tooltip: {
-      valueSuffix: ' m'
+      formatter: function () {
+        return 'Day: ' + Math.floor(this.x) + '<br>Left: ' + this.y + ' m'
+      }
     },
     plotOptions: {
       spline: {
