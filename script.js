@@ -61,6 +61,8 @@ $.ajax({
         if (el.surface) { emptify.push([dateDiff, el.surface]) }
         lastDate = el.date.getTime()
         reg.push([0, conf.min])
+
+        conf.lastEmptify = (new Date().getTime() - el.date.getTime()) / (1000 * 3600 * 24)
       }
       else { set.push([dateDiff, el.surface]) }
       if (el.surface) {
@@ -188,7 +190,18 @@ $.ajax({
   });
   chart.addSeries({
     type: 'line',
-    color: '#f45b5b'
+    name: 'Today',
+    data: [[conf.lastEmptify, conf.min], [conf.lastEmptify, .5]],
+    marker: {
+      enabled: false
+    },
+    states: {
+      hover: {
+        lineWidth: 0
+      }
+    },
+    enableMouseTracking: false,
+    dashStyle: 'Dash'
   });
 })
 
