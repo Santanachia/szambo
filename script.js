@@ -183,12 +183,11 @@ $.ajax({
   });
   chart.addSeries({
     type: 'line',
-    data: [[set[set.length - 1][0], set[set.length - 1][1]], [(conf.max - conf.min) / conf.a1, conf.max]],
+    data: [[(conf.max - conf.min) / conf.a1, conf.max], [set[set.length - 1][0], set[set.length - 1][1]], [(conf.max - conf.min) / conf.a2, conf.max]],
     color: '#90ee7e'
   });
   chart.addSeries({
     type: 'line',
-    data: [[set[set.length - 1][0], set[set.length - 1][1]], [(conf.max - conf.min) / conf.a2, conf.max]],
     color: '#f45b5b'
   });
 })
